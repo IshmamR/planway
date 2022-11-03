@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
 // core components
-import Header from "/components/Header/Header.js";
+import Header from "../components/Header/Header.js";
 import Footer from "/components/Footer/Footer.js";
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
@@ -21,6 +21,7 @@ import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
 import ProductSection from "../pages-sections/LandingPage-Sections/ProductSection.js";
 import TeamSection from "/pages-sections/LandingPage-Sections/TeamSection.js";
 import PortfolioSection from "../pages-sections/LandingPage-Sections/Portfolio";
+import ClientsSection from "../pages-sections/LandingPage-Sections/Clients";
 import WorkSection from "/pages-sections/LandingPage-Sections/WorkSection.js";
 
 const dashboardRoutes = [];
@@ -71,6 +72,7 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main)}>
         <div className={classes.container}>
           <ProductSection />
+          <ClientsSection />
           <PortfolioSection />
           <TeamSection />
           <WorkSection />

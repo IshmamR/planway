@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -16,12 +16,56 @@ import CardFooter from "/components/Card/CardFooter.js";
 
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/teamStyle.js";
 import { Avatar, CardMedia, Typography } from "@material-ui/core";
+import {
+  Dialog,
+  DialogContent,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+} from "@mui/material";
 
 const useStyles = makeStyles(styles);
 
 const projects = [
   {
-    img: "/img/faces/avatar.jpg",
+    id: 1,
+    img: "https://neemo-react.envytheme.com/images/project/1.jpg",
+    title: "Vive education",
+    description:
+      "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
+    stack: "Django, React, Flutter",
+    live: "https://google.com",
+  },
+  {
+    id: 2,
+    img: "/img/portfolio/tazree.jpeg",
+    title: "Tazree",
+    description:
+      "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
+    stack: "Django, React, Flutter",
+    live: "https://google.com",
+  },
+  {
+    id: 3,
+    img: "/img/portfolio/fembula.jpeg",
+    title: "Fembula",
+    description:
+      "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
+    stack: "Django, React, Flutter",
+    live: "https://google.com",
+  },
+  {
+    id: 4,
+    img: "/img/portfolio/headdos.jpeg",
+    title: "Headdos",
+    description:
+      "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
+    stack: "Django, React, Flutter",
+    live: "https://google.com",
+  },
+  {
+    id: 5,
+    img: "https://neemo-react.envytheme.com/images/project/5.jpg",
     title: "Demo project",
     description:
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
@@ -29,16 +73,9 @@ const projects = [
     live: "https://google.com",
   },
   {
-    img: "/img/faces/avatar.jpg",
-    title: "Demo project",
-    description:
-      "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
-    stack: "Django, React, Flutter",
-    live: "https://google.com",
-  },
-  {
-    img: "/img/faces/avatar.jpg",
-    title: "Demo project",
+    id: 6,
+    img: "/img/portfolio/ula.png",
+    title: "ULA",
     description:
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
@@ -47,59 +84,46 @@ const projects = [
 ];
 
 export default function PortfolioSection() {
+  const [projectModal, setProjectModal] = useState(undefined);
+
   const classes = useStyles();
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
-  );
+
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>Some of our recent works</h2>
       <div>
-        <GridContainer>
-          {projects.map((project) => (
-            <GridItem xs={12} sm={12} md={4}>
-              <Card>
-                <CardMedia>
-                  <img
-                    variant="square"
-                    src={project.img}
-                    alt="..."
-                    style={{
-                      width: "80%",
-                      objectFit: "contain",
-                      margin: "auto",
-                    }}
-                    // className={imageClasses}
-                  />
-                </CardMedia>
-                <h3 className={classes.cardTitle}>
-                  {project.title}
-                  <br />
-                  <small className={classes.smallTitle}>{project.stack}</small>
-                </h3>
-                <CardBody style={{ paddingBottom: 0 }}>
-                  <p className={classes.description}>{project.description}</p>
-                </CardBody>
-                <CardFooter
-                  className={classes.justifyCenter}
-                  style={{ paddingTop: 0 }}
-                >
-                  <Button
-                    justIcon
-                    color="transparent"
-                    href={project.live}
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fa fa-globe"} />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </GridItem>
+        <ImageList variant="quilted" cols={3} gap={2} sx={{ pb: 4 }}>
+          {projects.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`${item.img}?w=248&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                title={item.title}
+                loading="lazy"
+                style={{ cursor: "pointer" }}
+                onClick={() => setProjectModal(item)}
+              />
+              <ImageListItemBar
+                title={<Typography variant="h5">{item.title}</Typography>}
+                subtitle={
+                  <Typography variant="caption">{item.description}</Typography>
+                }
+                position="bottom"
+              />
+            </ImageListItem>
           ))}
-        </GridContainer>
+        </ImageList>
       </div>
+
+      <Dialog
+        fullWidth
+        maxWidth="md"
+        open={!!projectModal}
+        onClose={() => setProjectModal(undefined)}
+      >
+        <DialogContent>{projectModal?.title}</DialogContent>
+      </Dialog>
     </div>
   );
 }

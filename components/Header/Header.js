@@ -63,7 +63,8 @@ export default function Header(props) {
   });
   const brandComponent = (
     <Link href="/components" as="/components">
-      <Button className={classes.title}>{brand}</Button>
+      {/* <Button className={classes.title}>{brand}</Button> */}
+      <img src="/img/essentials/planway_it_bg.jpeg" height="40" />
     </Link>
   );
   return (
