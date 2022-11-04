@@ -98,6 +98,13 @@ export default function ProductSection() {
             iconColor="danger"
             vertical
           />
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          px={{ xs: 0, md: 12 }}
+        >
           <InfoArea
             title="IT CONSULTANT"
             description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."

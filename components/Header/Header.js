@@ -45,6 +45,7 @@ export default function Header(props) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.add(classes[changeColorOnScroll.color]);
+      // document.body.getElementsByTagName("header")[0].style.opacity = 0.5;
     } else {
       document.body
         .getElementsByTagName("header")[0]
@@ -52,6 +53,7 @@ export default function Header(props) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.remove(classes[changeColorOnScroll.color]);
+      // document.body.getElementsByTagName("header")[0].style.opacity = 1;
     }
   };
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;

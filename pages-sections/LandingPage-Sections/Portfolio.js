@@ -89,6 +89,12 @@ const projects = [
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
     live: "https://google.com",
+    images: [
+      "/img/projects/ula_1.jpeg",
+      "/img/projects/ula_2.jpeg",
+      "/img/projects/ula_3.jpeg",
+      "/img/projects/ula_4.jpeg",
+    ],
   },
 ];
 
@@ -139,7 +145,7 @@ export default function PortfolioSection() {
                   slidesToShow={projectModal?.isWeb ? 1 : 2}
                   cellSpacing={1}
                   animation="zoom"
-                  // cellAlign="center"
+                  wrapAround={projectModal.images.length > 1}
                   scrollMode="remainder"
                   style={{ width: "100%" }}
                 >

@@ -117,9 +117,16 @@ export default function ClientsSection() {
       </h3>
       <div>
         <Carousel
-        wrapAround
+          wrapAround
           slidesToShow={4}
-          // defaultControlsConfig={{ nextButtonText: <ArrowRightOutlinedIcon /> }}
+          autoplay
+          autoplayInterval={2000}
+          cellAlign="center"
+          defaultControlsConfig={{
+            pagingDotsStyle: { display: "none" },
+            nextButtonStyle: { display: "none" },
+            prevButtonStyle: { display: "none" },
+          }}
         >
           {projects.map((item) => (
             <img
@@ -129,6 +136,7 @@ export default function ClientsSection() {
               alt={item.title}
               title={item.title}
               loading="lazy"
+              draggable={false}
               style={{
                 border: "1px solid #dadada",
                 objectFit: "contain",
