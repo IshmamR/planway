@@ -12,6 +12,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import Carousel from "nuka-carousel";
 
 const useStyles = makeStyles(styles);
 
@@ -111,9 +112,31 @@ export default function ClientsSection() {
 
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Clients We have Worked With</h2>
+      <h3 className={classes.title} style={{ textAlign: "left" }}>
+        Clients We have Worked With
+      </h3>
       <div>
-        <ImageList
+        <Carousel
+        wrapAround
+          slidesToShow={4}
+          // defaultControlsConfig={{ nextButtonText: <ArrowRightOutlinedIcon /> }}
+        >
+          {projects.map((item) => (
+            <img
+              src={item.img}
+              height="120"
+              width="240"
+              alt={item.title}
+              title={item.title}
+              loading="lazy"
+              style={{
+                border: "1px solid #dadada",
+                objectFit: "contain",
+              }}
+            />
+          ))}
+        </Carousel>
+        {/* <ImageList
           sx={{ width: "100%" }}
           variant="quilted"
           cols={isDownSm ? 1 : 4}
@@ -138,7 +161,7 @@ export default function ClientsSection() {
               />
             </ImageListItem>
           ))}
-        </ImageList>
+        </ImageList> */}
       </div>
     </div>
   );

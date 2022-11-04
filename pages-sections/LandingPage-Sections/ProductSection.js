@@ -12,6 +12,7 @@ import GridItem from "/components/Grid/GridItem.js";
 import InfoArea from "../../components/InfoArea/InfoArea.js";
 
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/productStyle.js";
+import { Box } from "@mui/material";
 
 const useStyles = makeStyles(styles);
 
@@ -34,7 +35,7 @@ export default function ProductSection() {
         </GridItem>
       </GridContainer>
       <div>
-        <GridContainer>
+        {/* <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Mobile app development"
@@ -65,7 +66,55 @@ export default function ProductSection() {
               vertical
             />
           </GridItem>
-        </GridContainer>
+        </GridContainer> */}
+
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          flexWrap="wrap"
+        >
+          <InfoArea
+            title="MOBILE APP DEVELOPMENT"
+            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            icon={Chat}
+            image="http://consultar-react.wpocean.com/static/media/document.8a4de5f9.svg"
+            iconColor="info"
+            vertical
+          />
+          <InfoArea
+            title="CUSTOMIZED WEB DEVELOPMENT"
+            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            icon={VerifiedUser}
+            image="http://consultar-react.wpocean.com/static/media/bar-graph.75e8d96e.svg"
+            iconColor="success"
+            vertical
+          />
+          <InfoArea
+            title="SOFTWARE TESTING & QA"
+            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            icon={Fingerprint}
+            image="http://consultar-react.wpocean.com/static/media/handshake.77042259.svg"
+            iconColor="danger"
+            vertical
+          />
+          <InfoArea
+            title="IT CONSULTANT"
+            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            icon={Fingerprint}
+            image="http://consultar-react.wpocean.com/static/media/clipboard.0cef2a23.svg"
+            iconColor="danger"
+            vertical
+          />
+          <InfoArea
+            title="E-COMMERCE/MULTI-VENDOR SOLUTION"
+            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            icon={Fingerprint}
+            image="http://consultar-react.wpocean.com/static/media/briefcase.5b197508.svg"
+            iconColor="danger"
+            vertical
+          />
+        </Box>
       </div>
     </div>
   );
