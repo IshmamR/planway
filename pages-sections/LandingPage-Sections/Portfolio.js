@@ -1,28 +1,16 @@
 import React, { useState } from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-import GridContainer from "/components/Grid/GridContainer.js";
-import GridItem from "/components/Grid/GridItem.js";
-import Button from "/components/CustomButtons/Button.js";
-import Card from "/components/Card/Card.js";
-import CardBody from "/components/Card/CardBody.js";
-import CardFooter from "/components/Card/CardFooter.js";
-
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/teamStyle.js";
-import { Avatar, CardMedia, Typography } from "@material-ui/core";
 import {
+  Box,
   Dialog,
   DialogContent,
   ImageList,
+  Typography,
   ImageListItem,
   ImageListItemBar,
 } from "@mui/material";
+import Carousel from "nuka-carousel";
 
 const useStyles = makeStyles(styles);
 
@@ -35,6 +23,13 @@ const projects = [
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
     live: "https://google.com",
+    images: [
+      "/img/projects/vive_1.jpeg",
+      "/img/projects/vive_2.jpeg",
+      "/img/projects/vive_3.jpeg",
+      "/img/projects/vive_4.jpeg",
+      "/img/projects/vive_5.jpeg",
+    ],
   },
   {
     id: 2,
@@ -44,6 +39,8 @@ const projects = [
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
     live: "https://google.com",
+    images: ["/img/projects/tazree.jpeg"],
+    isWeb: true,
   },
   {
     id: 3,
@@ -53,6 +50,8 @@ const projects = [
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
     live: "https://google.com",
+    images: ["/img/projects/fembula_1.jpeg", "/img/projects/fembula_2.jpeg"],
+    isWeb: true,
   },
   {
     id: 4,
@@ -62,15 +61,25 @@ const projects = [
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
     live: "https://google.com",
+    images: [
+      "/img/projects/headdos_1.jpeg",
+      "/img/projects/headdos_2.jpeg",
+      "/img/projects/headdos_3.jpeg",
+      "/img/projects/headdos_4.jpeg",
+    ],
   },
   {
     id: 5,
     img: "https://neemo-react.envytheme.com/images/project/5.jpg",
-    title: "Demo project",
+    title: "Ride share",
     description:
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",
     live: "https://google.com",
+    images: [
+      "/img/projects/ride_share_1.jpeg",
+      "/img/projects/ride_share_2.jpeg",
+    ],
   },
   {
     id: 6,
@@ -122,7 +131,41 @@ export default function PortfolioSection() {
         open={!!projectModal}
         onClose={() => setProjectModal(undefined)}
       >
-        <DialogContent>{projectModal?.title}</DialogContent>
+        <DialogContent>
+          <Box display="flex" flexDirection="row" gap={3}>
+            <Box minWidth="50%" maxWidth="50%">
+              {projectModal?.images ? (
+                <Carousel
+                  slidesToShow={projectModal?.isWeb ? 1 : 2}
+                  cellSpacing={1}
+                  animation="zoom"
+                  // cellAlign="center"
+                  scrollMode="remainder"
+                  style={{ width: "100%" }}
+                >
+                  {projectModal.images?.map((img) => (
+                    <img
+                      src={img}
+                      key={img}
+                      alt="..."
+                      height="360"
+                      style={{ width: "100%", objectFit: "contain" }}
+                    />
+                  ))}
+                </Carousel>
+              ) : null}
+            </Box>
+            <Box flex={1} py={2} maxWidth="50%">
+              <Typography variant="h4">{projectModal?.title}</Typography>
+              <Typography variant="body2">
+                {projectModal?.description}
+              </Typography>
+              <Typography variant="body1" mt={1}>
+                Tech stack: <strong>Django, React, Next</strong>
+              </Typography>
+            </Box>
+          </Box>
+        </DialogContent>
       </Dialog>
     </div>
   );
