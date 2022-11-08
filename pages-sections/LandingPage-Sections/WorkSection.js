@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
 import CustomInput from "/components/CustomInput/CustomInput.js";
-import Button from "/components/CustomButtons/Button.js";
+import Button from "../../components/CustomButtons/Button.js";
 
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/workStyle.js";
 
@@ -60,7 +60,7 @@ export default function WorkSection() {
                 }}
               />
               <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>
-                <Button color="primary">Send Message</Button>
+                <Button color="planway">Send Message</Button>
               </GridItem>
             </GridContainer>
           </form>

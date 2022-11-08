@@ -21,16 +21,23 @@ export default function ProductSection() {
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
-        <GridItem xs={12} sm={12} md={8}>
+        <GridItem xs={12} sm={12} md={12}>
           <h2 className={classes.title}>
             Professional And Dedicated Software Solutions
           </h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            Planway IT is a next-generation global technology company that helps
+            enterprises reimagine their businesses for the digital age. Our
+            technology products and services are built on four decades of
+            innovation, with a world-renowned management philosophy, a strong
+            culture of invention and risk-taking, and a relentless focus on
+            customer relationships. HCL also takes pride in its many diversity,
+            social responsibility, sustainability, and education initiatives.
+            Through its worldwide network of R&D facilities and co-innovation
+            labs, global delivery capabilities, and over 168,000+ ‘Ideapreneurs’
+            across 50 countries, HCL delivers holistic services across industry
+            verticals to leading enterprises, including 250 of the Fortune 500
+            and 650 of the Global 2000.
           </h5>
         </GridItem>
       </GridContainer>
@@ -76,7 +83,7 @@ export default function ProductSection() {
         >
           <InfoArea
             title="MOBILE APP DEVELOPMENT"
-            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            description="We provide unique mobile application development services to develop solutions that solve real-life problems."
             icon={Chat}
             image="http://consultar-react.wpocean.com/static/media/document.8a4de5f9.svg"
             iconColor="info"
@@ -84,7 +91,7 @@ export default function ProductSection() {
           />
           <InfoArea
             title="CUSTOMIZED WEB DEVELOPMENT"
-            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            description="Well-built software thinks about users and their needs. Websites require one thing, and that is functionality. Without it most websites are useless."
             icon={VerifiedUser}
             image="http://consultar-react.wpocean.com/static/media/bar-graph.75e8d96e.svg"
             iconColor="success"
@@ -92,7 +99,7 @@ export default function ProductSection() {
           />
           <InfoArea
             title="SOFTWARE TESTING & QA"
-            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            description="We provide a full range of web application services, from requirement gathering until the application is successfully deployed on the client end."
             icon={Fingerprint}
             image="http://consultar-react.wpocean.com/static/media/handshake.77042259.svg"
             iconColor="danger"
@@ -107,15 +114,15 @@ export default function ProductSection() {
         >
           <InfoArea
             title="IT CONSULTANT"
-            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            description="We provide unique mobile application development services to develop solutions that solve real-life problems."
             icon={Fingerprint}
             image="http://consultar-react.wpocean.com/static/media/clipboard.0cef2a23.svg"
             iconColor="danger"
             vertical
           />
           <InfoArea
-            title="E-COMMERCE/MULTI-VENDOR SOLUTION"
-            description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+            title="CUSTOMIZED ERP"
+            description="Planway IT ERP Solution is a suite of applications that manages core business process such as sales, purchasing, human resources, customer support, CRM and inventory"
             icon={Fingerprint}
             image="http://consultar-react.wpocean.com/static/media/briefcase.5b197508.svg"
             iconColor="danger"

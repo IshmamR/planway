@@ -29,7 +29,7 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function TeamPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -72,12 +72,7 @@ export default function LandingPage(props) {
       </Parallax>
       <div className={classNames(classes.main)}>
         <div className={classes.container}>
-          <ProductSection />
-          <ClientsSection />
-          <PortfolioSection />
-          <ServiceSection />
           <TeamSection />
-          <WorkSection />
         </div>
       </div>
       <Footer />

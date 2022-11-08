@@ -24,12 +24,13 @@ import PortfolioSection from "../pages-sections/LandingPage-Sections/Portfolio";
 import ClientsSection from "../pages-sections/LandingPage-Sections/Clients";
 import WorkSection from "../pages-sections/LandingPage-Sections/WorkSection.js";
 import ServiceSection from "../pages-sections/LandingPage-Sections/ServiceSection.js";
+import AboutSection from "../pages-sections/LandingPage-Sections/AboutSection.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function AboutPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -50,34 +51,19 @@ export default function LandingPage(props) {
         <div className={classes.container} style={{ zIndex: 1000 }}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Helping You Solve Your Problems</h1>
+              <h2 className={classes.title}>Welcome to Planway IT</h2>
               <h4>
                 Our mission is to offer a robust technology-powered platform to
                 enable a seamless flow of products and services.
               </h4>
               <br />
-              {/* <Button
-                color="danger"
-                size="lg"
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-play" />
-                Watch video
-              </Button> */}
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
       <div className={classNames(classes.main)}>
         <div className={classes.container}>
-          <ProductSection />
-          <ClientsSection />
-          <PortfolioSection />
-          <ServiceSection />
-          <TeamSection />
-          <WorkSection />
+          <AboutSection />
         </div>
       </div>
       <Footer />
