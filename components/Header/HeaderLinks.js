@@ -1,18 +1,15 @@
 /*eslint-disable*/
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
-import Icon from "@material-ui/core/Icon";
 
 // @material-ui/icons
 import {
   Apps,
-  CloudDownload,
   Home,
   Storage,
   GroupWork,
@@ -25,22 +22,17 @@ import {
   AccountTree,
   DeveloperBoard,
 } from "@material-ui/icons";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-
-// core components
-import CustomDropdown from "../CustomDropdown/CustomDropdown.js";
-import Button from "/components/CustomButtons/Button.js";
 
 import styles from "/styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
 import styled from "styled-components";
-import { Box, Paper, Typography } from "@mui/material";
-import { techStacks } from "../../data/techStacks.js";
+import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/router.js";
 
 const useStyles = makeStyles(styles);
 
-const DropDownMenu = styled(Paper)`
+const DropDownMenu = styled.span`
+  display: flex;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: absolute;
   top: 60px;
   right: ${({ right }) => (right ? "0" : undefined)};
@@ -48,18 +40,26 @@ const DropDownMenu = styled(Paper)`
   opacity: 0;
   transform-origin: top;
   transition: all 0.2s ease;
+  background-color: white;
+
+  flex: 1;
+  padding: 1.5rem;
+  flex-direction: column;
+  min-width: 340px;
+  border-radius: 10px;
 `;
 
-const StyledDropDownButton = styled.div`
+const StyledDropDownButton = styled.span`
+  padding: 10px;
   position: relative;
   display: flex;
-  padding: 10px;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   justify-content: space-evenly;
   height: 100%;
   cursor: pointer;
+  color: unset;
   color: ${({ active }) => (active ? "#ff8933" : "unset")};
   &:hover {
     ${DropDownMenu} {
@@ -77,6 +77,14 @@ const StyledDropDownButton = styled.div`
       transition: all 0.2s ease;
     }
   }
+`;
+
+const SubLink = styled.a`
+  display: flex;
+  align-items: center;
+  color: black;
+  gap: 1rem;
+  margin-bottom: 1rem;
 `;
 
 const services = [
@@ -150,18 +158,21 @@ const expertise = [
   },
 ];
 
-export default function HeaderLinks(props) {
+export default function HeaderLinks() {
   const classes = useStyles();
 
-  const router = useRouter();
+  // const router = useRouter();
+  // const [activeRoute, setActiveRoute] = useState("/");
+
+  // useEffect(() => setActiveRoute(router.pathname), [router]);
 
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <Link href="/">
+        <Link href="/" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-              active={router.pathname === "/" ? "true" : undefined}
+            // active={activeRoute === "/" ? "true" : undefined}
             >
               <Home />
               <Typography variant="caption">Home</Typography>
@@ -170,10 +181,10 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/about">
+        <Link href="/about" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-              active={router.pathname === "/about" ? "true" : undefined}
+            // active={activeRoute === "/about" ? "true" : undefined}
             >
               <Apps />
               <Typography variant="caption">About</Typography>
@@ -183,58 +194,34 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link href="/service">
-          <a style={{ color: "inherit" }}>
-            <StyledDropDownButton
-              active={
-                router.pathname.startsWith("/service") ? "true" : undefined
-              }
-            >
-              <Storage />
-              <Typography variant="caption">Service</Typography>
-              <DropDownMenu elevation={5}>
-                <Box py={2} px={2}>
-                  <Box display="flex">
-                    <Box
-                      flex={1}
-                      p={1}
-                      display="flex"
-                      flexDirection="column"
-                      minWidth={240}
-                    >
-                      {services.map((item) => (
-                        <Link key={item.title} href={item.link}>
-                          <a>
-                            <Box
-                              display="flex"
-                              alignItems="center"
-                              color="black"
-                              gap={2}
-                              mb={1}
-                            >
-                              {item.icon}
-                              <Typography
-                                variant="caption"
-                                fontSize="16px"
-                                color="black"
-                              >
-                                {item.title}
-                              </Typography>
-                            </Box>
-                          </a>
-                        </Link>
-                      ))}
-                    </Box>
-                  </Box>
-                </Box>
-              </DropDownMenu>
-            </StyledDropDownButton>
-          </a>
+          {/* <a style={{ color: "inherit" }}> */}
+          <StyledDropDownButton
+          // active={activeRoute.startsWith("/service") ? "true" : undefined}
+          >
+            <Storage />
+            <Typography variant="caption">Service</Typography>
+            <DropDownMenu>
+              {services.map((item) => (
+                <Link key={item.link} href={item.link} passHref>
+                  <SubLink>
+                    {item.icon}
+                    <Typography variant="caption" fontSize="16px" color="black">
+                      {item.title}
+                    </Typography>
+                  </SubLink>
+                </Link>
+              ))}
+            </DropDownMenu>
+          </StyledDropDownButton>
+          {/* </a> */}
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/portfolio">
+        <Link href="/portfolio" passHref>
           <a style={{ color: "inherit" }}>
-            <StyledDropDownButton>
+            <StyledDropDownButton
+            // active={activeRoute === "/portfolio" ? "true" : undefined}
+            >
               <GroupWork />
               <Typography variant="caption">Portfolio</Typography>
             </StyledDropDownButton>
@@ -242,52 +229,30 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <StyledDropDownButton>
+        <StyledDropDownButton
+        // active={activeRoute.startsWith("/expertise") ? "true" : undefined}
+        >
           <VerifiedUser />
           <Typography variant="caption">Expertise</Typography>
-          <DropDownMenu elevation={5} right="true">
-            <Box py={2} px={2}>
-              <Box display="flex">
-                <Box
-                  flex={1}
-                  p={1}
-                  display="flex"
-                  flexDirection="column"
-                  minWidth={320}
-                >
-                  {expertise.map((item) => (
-                    <Link key={item.title} href={item.link}>
-                      <a>
-                        <Box
-                          display="flex"
-                          alignItems="center"
-                          color="black"
-                          gap={2}
-                          mb={1}
-                        >
-                          {item.icon}
-                          <Typography
-                            variant="caption"
-                            fontSize="16px"
-                            color="black"
-                          >
-                            {item.title}
-                          </Typography>
-                        </Box>
-                      </a>
-                    </Link>
-                  ))}
-                </Box>
-              </Box>
-            </Box>
+          <DropDownMenu>
+            {expertise.map((item) => (
+              <Link key={item.link} href={item.link}>
+                <SubLink>
+                  {item.icon}
+                  <Typography variant="caption" fontSize="16px" color="black">
+                    {item.title}
+                  </Typography>
+                </SubLink>
+              </Link>
+            ))}
           </DropDownMenu>
         </StyledDropDownButton>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/team">
+        <Link href="/team" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-              active={router.pathname === "/team" ? "true" : undefined}
+            // active={activeRoute === "/team" ? "true" : undefined}
             >
               <GroupSharp />
               <Typography variant="caption">Team</Typography>
@@ -296,10 +261,10 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link href="/contact">
+        <Link href="/contact" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-              active={router.pathname === "/contact" ? "true" : undefined}
+            // active={activeRoute === "/contact" ? "true" : undefined}
             >
               <PermContactCalendar />
               <Typography variant="caption">Contact</Typography>

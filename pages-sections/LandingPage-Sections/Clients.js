@@ -130,6 +130,7 @@ export default function ClientsSection() {
         >
           {projects.map((item) => (
             <img
+              key={item.img}
               src={item.img}
               height="120"
               width="240"

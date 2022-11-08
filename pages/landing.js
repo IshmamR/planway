@@ -24,6 +24,7 @@ import PortfolioSection from "../pages-sections/LandingPage-Sections/Portfolio";
 import ClientsSection from "../pages-sections/LandingPage-Sections/Clients";
 import WorkSection from "../pages-sections/LandingPage-Sections/WorkSection.js";
 import ServiceSection from "../pages-sections/LandingPage-Sections/ServiceSection.js";
+import { Typography } from "@mui/material";
 
 const dashboardRoutes = [];
 
@@ -51,10 +52,10 @@ export default function LandingPage(props) {
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Helping You Solve Your Problems</h1>
-              <h4>
+              <Typography>
                 Our mission is to offer a robust technology-powered platform to
                 enable a seamless flow of products and services.
-              </h4>
+              </Typography>
               <br />
               {/* <Button
                 color="danger"
