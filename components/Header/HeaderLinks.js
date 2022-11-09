@@ -83,8 +83,12 @@ const SubLink = styled.a`
   display: flex;
   align-items: center;
   color: black;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 1rem;
+
+  :hover {
+    color: #ff8933;
+  }
 `;
 
 const services = [
@@ -161,10 +165,10 @@ const expertise = [
 export default function HeaderLinks() {
   const classes = useStyles();
 
-  // const router = useRouter();
-  // const [activeRoute, setActiveRoute] = useState("/");
+  const router = useRouter();
+  const [activeRoute, setActiveRoute] = useState("/");
 
-  // useEffect(() => setActiveRoute(router.pathname), [router]);
+  useEffect(() => setActiveRoute(router.pathname), [router]);
 
   return (
     <List className={classes.list}>
@@ -172,7 +176,7 @@ export default function HeaderLinks() {
         <Link href="/" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-            // active={activeRoute === "/" ? "true" : undefined}
+              active={activeRoute === "/" ? "true" : undefined}
             >
               <Home />
               <Typography variant="caption">Home</Typography>
@@ -184,7 +188,7 @@ export default function HeaderLinks() {
         <Link href="/about" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-            // active={activeRoute === "/about" ? "true" : undefined}
+              active={activeRoute === "/about" ? "true" : undefined}
             >
               <Apps />
               <Typography variant="caption">About</Typography>
@@ -196,7 +200,7 @@ export default function HeaderLinks() {
         <Link href="/service">
           {/* <a style={{ color: "inherit" }}> */}
           <StyledDropDownButton
-          // active={activeRoute.startsWith("/service") ? "true" : undefined}
+            active={activeRoute.startsWith("/service") ? "true" : undefined}
           >
             <Storage />
             <Typography variant="caption">Service</Typography>
@@ -205,7 +209,7 @@ export default function HeaderLinks() {
                 <Link key={item.link} href={item.link} passHref>
                   <SubLink>
                     {item.icon}
-                    <Typography variant="caption" fontSize="16px" color="black">
+                    <Typography variant="caption" fontSize="16px">
                       {item.title}
                     </Typography>
                   </SubLink>
@@ -220,7 +224,7 @@ export default function HeaderLinks() {
         <Link href="/portfolio" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-            // active={activeRoute === "/portfolio" ? "true" : undefined}
+              active={activeRoute === "/portfolio" ? "true" : undefined}
             >
               <GroupWork />
               <Typography variant="caption">Portfolio</Typography>
@@ -230,7 +234,7 @@ export default function HeaderLinks() {
       </ListItem>
       <ListItem className={classes.listItem}>
         <StyledDropDownButton
-        // active={activeRoute.startsWith("/expertise") ? "true" : undefined}
+          active={activeRoute.startsWith("/expertise") ? "true" : undefined}
         >
           <VerifiedUser />
           <Typography variant="caption">Expertise</Typography>
@@ -239,7 +243,7 @@ export default function HeaderLinks() {
               <Link key={item.link} href={item.link}>
                 <SubLink>
                   {item.icon}
-                  <Typography variant="caption" fontSize="16px" color="black">
+                  <Typography variant="caption" fontSize="16px">
                     {item.title}
                   </Typography>
                 </SubLink>
@@ -252,7 +256,7 @@ export default function HeaderLinks() {
         <Link href="/team" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-            // active={activeRoute === "/team" ? "true" : undefined}
+              active={activeRoute === "/team" ? "true" : undefined}
             >
               <GroupSharp />
               <Typography variant="caption">Team</Typography>
@@ -264,7 +268,7 @@ export default function HeaderLinks() {
         <Link href="/contact" passHref>
           <a style={{ color: "inherit" }}>
             <StyledDropDownButton
-            // active={activeRoute === "/contact" ? "true" : undefined}
+              active={activeRoute === "/contact" ? "true" : undefined}
             >
               <PermContactCalendar />
               <Typography variant="caption">Contact</Typography>
