@@ -62,6 +62,38 @@ export default function TeamSection() {
               </CardContent>
             </Card>
           </GridItem>
+          <GridItem xs={12} sm={6} md={3}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image="/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg"
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography variant="subtitle1" fontWeight="600">
+                  Mohammad Imam Hossain
+                </Typography>
+                <Typography variant="caption">Advisor</Typography>
+              </CardContent>
+            </Card>
+          </GridItem>
+          <GridItem xs={12} sm={6} md={3}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image="/img/team/MD_al_tanjid_shakil.jpeg"
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography variant="subtitle1" fontWeight="600">
+                  MD al tanjid shakil
+                </Typography>
+                <Typography variant="caption">App Developer</Typography>
+              </CardContent>
+            </Card>
+          </GridItem>
         </GridContainer>
       </div>
     </div>

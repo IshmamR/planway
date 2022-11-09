@@ -86,6 +86,8 @@ const SubLink = styled.a`
   gap: 0.5rem;
   margin-bottom: 1rem;
 
+  color: ${({ active }) => (active ? "#ff8933" : "#424242")};
+
   :hover {
     color: #ff8933;
   }
@@ -170,6 +172,8 @@ export default function HeaderLinks() {
 
   useEffect(() => setActiveRoute(router.pathname), [router]);
 
+  console.log(router);
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -207,7 +211,9 @@ export default function HeaderLinks() {
             <DropDownMenu>
               {services.map((item) => (
                 <Link key={item.link} href={item.link} passHref>
-                  <SubLink>
+                  <SubLink
+                    active={router.asPath === item.link ? "true" : undefined}
+                  >
                     {item.icon}
                     <Typography variant="caption" fontSize="16px">
                       {item.title}
@@ -241,7 +247,9 @@ export default function HeaderLinks() {
           <DropDownMenu>
             {expertise.map((item) => (
               <Link key={item.link} href={item.link}>
-                <SubLink>
+                <SubLink
+                  active={router.asPath === item.link ? "true" : undefined}
+                >
                   {item.icon}
                   <Typography variant="caption" fontSize="16px">
                     {item.title}

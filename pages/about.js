@@ -25,6 +25,8 @@ import ClientsSection from "../pages-sections/LandingPage-Sections/Clients";
 import WorkSection from "../pages-sections/LandingPage-Sections/WorkSection.js";
 import ServiceSection from "../pages-sections/LandingPage-Sections/ServiceSection.js";
 import AboutSection from "../pages-sections/LandingPage-Sections/AboutSection.js";
+import Carousel from "nuka-carousel";
+import { Box, Typography } from "@mui/material";
 
 const dashboardRoutes = [];
 
@@ -49,7 +51,7 @@ export default function AboutPage(props) {
       />
       <Parallax filter responsive image="/img/landing-bg.jpg">
         <div className={classes.container} style={{ zIndex: 1000 }}>
-          <GridContainer>
+          {/* <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <h2 className={classes.title}>Welcome to Planway IT</h2>
               <h4>
@@ -58,7 +60,36 @@ export default function AboutPage(props) {
               </h4>
               <br />
             </GridItem>
-          </GridContainer>
+          </GridContainer> */}
+          <Carousel
+            slidesToShow={1}
+            wrapAround
+            animation="zoom"
+            autoplay
+            autoplayInterval={5000}
+            defaultControlsConfig={{
+              prevButtonStyle: { display: "none" },
+              nextButtonStyle: { display: "none" },
+              pagingDotsStyle: { display: "none" },
+            }}
+          >
+            <Box width={{ xs: "100%", md: "60%" }}>
+              <h1 className={classes.title}>Helping You Solve Your Problems</h1>
+              <Typography color="white">
+                Our mission is to offer a robust technology-powered platform to
+                enable a seamless flow of products and services.
+              </Typography>
+              <br />
+            </Box>
+            <Box width={{ xs: "100%", md: "60%" }}>
+              <h1 className={classes.title}>Welcome to Planway IT</h1>
+              <Typography color="white">
+                Our mission is to offer a robust technology-powered platform to
+                enable a seamless flow of products and services.
+              </Typography>
+              <br />
+            </Box>
+          </Carousel>
         </div>
       </Parallax>
       <div className={classNames(classes.main)}>
