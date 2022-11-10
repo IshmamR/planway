@@ -3,28 +3,14 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-import Header from "../components/Header/Header.js";
-import Footer from "../components/Footer/Footer.js";
+import Header from "../../components/Header/Header.js";
+import Footer from "../../components/Footer/Footer.js";
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
-import Button from "/components/CustomButtons/Button.js";
-import HeaderLinks from "../components/Header/HeaderLinks.js";
+import HeaderLinks from "../../components/Header/HeaderLinks.js";
 import Parallax from "/components/Parallax/Parallax.js";
-
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
-
-// Sections for this page
-import ProductSection from "../pages-sections/LandingPage-Sections/ProductSection.js";
-import TeamSection from "../pages-sections/LandingPage-Sections/TeamSection.js";
-import PortfolioSection from "../pages-sections/LandingPage-Sections/Portfolio";
-import ClientsSection from "../pages-sections/LandingPage-Sections/Clients";
-import WorkSection from "../pages-sections/LandingPage-Sections/WorkSection.js";
-import ServiceSection from "../pages-sections/LandingPage-Sections/ServiceSection.js";
-import ServiceTabsSection from "../pages-sections/LandingPage-Sections/ServiceTabsSection.js";
+import ServiceTabsSection from "../../pages-sections/LandingPage-Sections/ServiceTabsSection.js";
 
 const dashboardRoutes = [];
 
@@ -69,4 +55,10 @@ export default function ServicePage(props) {
       <Footer />
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
 }

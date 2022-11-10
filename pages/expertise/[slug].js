@@ -21,9 +21,9 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function ServicesPage(props, c, b) {
+export default function ServicesPage() {
   const classes = useStyles();
-  const { ...rest } = props;
+  // const { ...rest } = props;
 
   return (
     <div>
@@ -37,7 +37,7 @@ export default function ServicesPage(props, c, b) {
           height: 300,
           color: "white",
         }}
-        {...rest}
+        // {...rest}
       />
       <Parallax filter responsive image="/img/landing-bg.jpg">
         <div className={classes.container} style={{ zIndex: 1000 }}>

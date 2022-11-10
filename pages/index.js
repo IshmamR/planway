@@ -86,3 +86,9 @@ function HomePage(props) {
 }
 
 export default HomePage;
+
+export async function getStaticProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}

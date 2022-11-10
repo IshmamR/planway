@@ -55,31 +55,31 @@ const MemberCard = styled(Card)`
   }
 `;
 
-const teamMembers = [
-  {
-    name: "Khandakar Abu Saife",
-    img: "/img/team/KHANDAKAR_ABU_SAIFE.jpeg",
-    designation: "Founder & Managing Director",
-  },
-  {
-    name: "Mozahidur Rahman",
-    img: "/img/team/Mozahidur_Rahman.jpeg",
-    designation: "Project Manager",
-  },
-  {
-    name: "Mohammad Imam Hossain",
-    img: "/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg",
-    designation: "Advisor",
-  },
-  {
-    name: "MD al tanjid shakil",
-    img: "/img/team/MD_al_tanjid_shakil.jpeg",
-    designation: "Mobile App Developer",
-  },
-];
-
 export default function TeamSection() {
   const classes = useStyles();
+
+  const teamMembers = [
+    {
+      name: "Khandakar Abu Saife",
+      img: "/img/team/KHANDAKAR_ABU_SAIFE.jpeg",
+      designation: "Founder & Managing Director",
+    },
+    {
+      name: "Mozahidur Rahman",
+      img: "/img/team/Mozahidur_Rahman.jpeg",
+      designation: "Project Manager",
+    },
+    {
+      name: "Mohammad Imam Hossain",
+      img: "/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg",
+      designation: "Advisor",
+    },
+    {
+      name: "MD al tanjid shakil",
+      img: "/img/team/MD_al_tanjid_shakil.jpeg",
+      designation: "Mobile App Developer",
+    },
+  ];
 
   return (
     <div className={classes.section}>
