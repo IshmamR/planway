@@ -157,7 +157,7 @@ const pageMap = {
     ],
   },
   "support-and-maintenance": {
-    title: "SUPPORT AND MAINTENANCE",
+    header: "SUPPORT AND MAINTENANCE",
     subtitle: "Upgrade And Maintain Software With Technical Teams",
     children: [
       {

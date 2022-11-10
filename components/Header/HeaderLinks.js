@@ -27,6 +27,7 @@ import styles from "/styles/jss/nextjs-material-kit/components/headerLinksStyle.
 import styled from "styled-components";
 import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/router.js";
+import { down } from "styled-breakpoints";
 
 const useStyles = makeStyles(styles);
 
@@ -47,6 +48,14 @@ const DropDownMenu = styled.span`
   flex-direction: column;
   min-width: 340px;
   border-radius: 10px;
+
+  ${down("md")} {
+    top: 0px;
+    right: 120px;
+    z-index: 999;
+    padding: 0.5rem;
+    min-width: 240px;
+  }
 `;
 
 const StyledDropDownButton = styled.span`
@@ -88,7 +97,11 @@ const SubLink = styled.a`
 
   color: ${({ active }) => (active ? "#ff8933" : "#424242")};
 
-  :hover {
+  &:visited {
+    color: "#424242";
+  }
+  &:hover,
+  &:active {
     color: #ff8933;
   }
 `;
@@ -124,42 +137,42 @@ const services = [
 const expertise = [
   {
     title: "Custom Software Development",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Compute_48.svg",
     link: "/expertise/custom-software-development",
   },
   {
     title: "Web App Development",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_End-User-Computing_48.svg",
     link: "/expertise/web-app-development",
   },
   {
     title: "Mobile App Development",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Front-End-Web-Mobile_48.svg",
     link: "/expertise/mobile-app-development",
   },
   {
     title: "UI/UX Design",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Application-Integration_48.svg",
     link: "/expertise/ui-ux-design",
   },
   {
     title: "DEVops",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Developer-Tools_48.svg",
     link: "/expertise/devops",
   },
   {
     title: "QA & Testing",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Robotics_48.svg",
     link: "/expertise/qa-testing",
   },
   {
     title: "Azure & AWS",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Serverless_48.svg",
     link: "/expertise/azure-aws",
   },
   {
     title: "Data Science, A.I. & M.L.",
-    icon: <TrendingUp />,
+    logo: "/img/Arch-Category_48/Arch-Category_Machine-Learning_48.svg",
     link: "/expertise/data-science",
   },
 ];
@@ -171,8 +184,6 @@ export default function HeaderLinks() {
   const [activeRoute, setActiveRoute] = useState("/");
 
   useEffect(() => setActiveRoute(router.pathname), [router]);
-
-  console.log(router);
 
   return (
     <List className={classes.list}>
@@ -246,11 +257,17 @@ export default function HeaderLinks() {
           <Typography variant="caption">Expertise</Typography>
           <DropDownMenu>
             {expertise.map((item) => (
-              <Link key={item.link} href={item.link}>
+              <Link key={item.link} href={item.link} passHref>
                 <SubLink
                   active={router.asPath === item.link ? "true" : undefined}
                 >
-                  {item.icon}
+                  <img
+                    key={item.logo}
+                    src={item.logo}
+                    height="16"
+                    width="16"
+                    alt={item.title}
+                  />
                   <Typography variant="caption" fontSize="16px">
                     {item.title}
                   </Typography>

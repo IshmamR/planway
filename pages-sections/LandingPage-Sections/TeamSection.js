@@ -1,99 +1,118 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-import GridContainer from "/components/Grid/GridContainer.js";
-import GridItem from "/components/Grid/GridItem.js";
-import Button from "/components/CustomButtons/Button.js";
-
+import { LinkedIn, Facebook, Instagram } from "@mui/icons-material";
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/teamStyle.js";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import styled from "styled-components";
+import { down } from "styled-breakpoints";
 
 const useStyles = makeStyles(styles);
 
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+
+  ${down("md")} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ${down("sm")} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const LinksDiv = styled.div`
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transition: 0.4s ease;
+`;
+
+const LinkContainer = styled.div`
+  padding: 0.5rem;
+  border-radius: 50px;
+  background-color: #ff8933;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const MemberCard = styled(Card)`
+  position: relative;
+  cursor: pointer;
+
+  :hover {
+    ${LinksDiv} {
+      opacity: 1;
+    }
+  }
+`;
+
+const teamMembers = [
+  {
+    name: "Khandakar Abu Saife",
+    img: "/img/team/KHANDAKAR_ABU_SAIFE.jpeg",
+    designation: "Founder & Managing Director",
+  },
+  {
+    name: "Mozahidur Rahman",
+    img: "/img/team/Mozahidur_Rahman.jpeg",
+    designation: "Project Manager",
+  },
+  {
+    name: "Mohammad Imam Hossain",
+    img: "/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg",
+    designation: "Advisor",
+  },
+  {
+    name: "MD al tanjid shakil",
+    img: "/img/team/MD_al_tanjid_shakil.jpeg",
+    designation: "Mobile App Developer",
+  },
+];
+
 export default function TeamSection() {
   const classes = useStyles();
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
-  );
+
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>OUR HARDWORKING TEAM</h2>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
+          {teamMembers.map((member) => (
+            <MemberCard>
+              <LinksDiv>
+                <LinkContainer>
+                  <Facebook />
+                </LinkContainer>
+                <LinkContainer>
+                  <Instagram />
+                </LinkContainer>
+                <LinkContainer>
+                  <LinkedIn />
+                </LinkContainer>
+              </LinksDiv>
               <CardMedia
                 component="img"
                 height="200"
-                image="/img/team/KHANDAKAR_ABU_SAIFE.jpeg"
+                image={member.img}
                 alt="green iguana"
               />
               <CardContent>
                 <Typography variant="subtitle1" fontWeight="600">
-                  Khandakar Abu Saife
+                  {member.name}
                 </Typography>
-                <Typography variant="caption">
-                  Founder &amp; Managing Director
-                </Typography>
+                <Typography variant="caption">{member.designation}</Typography>
               </CardContent>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="/img/team/Mozahidur_Rahman.jpeg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography variant="subtitle1" fontWeight="600">
-                  Mozahidur Rahman
-                </Typography>
-                <Typography variant="caption">Project Manager</Typography>
-              </CardContent>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography variant="subtitle1" fontWeight="600">
-                  Mohammad Imam Hossain
-                </Typography>
-                <Typography variant="caption">Advisor</Typography>
-              </CardContent>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={6} md={3}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="/img/team/MD_al_tanjid_shakil.jpeg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography variant="subtitle1" fontWeight="600">
-                  MD al tanjid shakil
-                </Typography>
-                <Typography variant="caption">App Developer</Typography>
-              </CardContent>
-            </Card>
-          </GridItem>
+            </MemberCard>
+          ))}
         </GridContainer>
       </div>
     </div>
