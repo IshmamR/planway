@@ -11,6 +11,7 @@ import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/te
 import { Box, Typography } from "@mui/material";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import styled from "styled-components";
+import { down } from "styled-breakpoints";
 
 const useStyles = makeStyles(styles);
 
@@ -39,6 +40,25 @@ const Tab = styled.div`
   :hover {
     color: ${({ active }) => (active ? "white" : "#ef6603")};
     border-color: #dadada;
+  }
+
+  ${down("md")} {
+    padding: 0.75rem;
+    svg {
+      font-size: 20px;
+    }
+    p {
+      display: none;
+    }
+  }
+`;
+
+const ServiceImage = styled.img`
+  height: 360px;
+  width: 360px;
+  ${down("md")} {
+    height: 280px;
+    width: 280px;
   }
 `;
 
@@ -235,7 +255,7 @@ export default function ServiceTabsSection() {
                   </Typography>
                 </Box>
                 <Box flex={1}>
-                  <img
+                  <ServiceImage
                     src="/img/features/features-1.png"
                     height="360"
                     width="360"
@@ -342,7 +362,7 @@ export default function ServiceTabsSection() {
                   </Typography>
                 </Box>
                 <Box flex={1}>
-                  <img
+                  <ServiceImage
                     src="/img/features/features-2.png"
                     height="360"
                     width="400"
@@ -381,7 +401,7 @@ export default function ServiceTabsSection() {
                   </Typography>
                 </Box>
                 <Box flex={1}>
-                  <img
+                  <ServiceImage
                     src="/img/features/features-3.png"
                     height="360"
                     width="360"
@@ -415,7 +435,7 @@ export default function ServiceTabsSection() {
                   </Typography>
                 </Box>
                 <Box flex={1}>
-                  <img
+                  <ServiceImage
                     src="/img/features/features-4.png"
                     height="360"
                     width="360"
