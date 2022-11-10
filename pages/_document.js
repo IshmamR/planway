@@ -8,8 +8,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="theme-color" content="#000000" />
-          <link rel="shortcut icon" href="/img/favicon.png" />
+          <meta name="theme-color" content="#ff8933" />
+          <link rel="shortcut icon" href="/img/favicon.ico" />
           <link
             rel="apple-touch-icon"
             sizes="76x76"

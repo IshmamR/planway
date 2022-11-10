@@ -5,25 +5,19 @@ import Header from "../components/Header/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import HeaderLinks from "../components/Header/HeaderLinks.js";
 import Parallax from "/components/Parallax/Parallax.js";
-
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
-
 import AboutSection from "../pages-sections/LandingPage-Sections/AboutSection.js";
 import Carousel from "nuka-carousel";
 import { Box, Typography } from "@mui/material";
 
-const dashboardRoutes = [];
-
 const useStyles = makeStyles(styles);
 
-export default function AboutPage(props) {
+export default function AboutPage() {
   const classes = useStyles();
-  const { ...rest } = props;
   return (
     <div>
       <Header
         color="transparent"
-        routes={dashboardRoutes}
         brand="Planway IT"
         rightLinks={<HeaderLinks />}
         fixed
@@ -31,7 +25,6 @@ export default function AboutPage(props) {
           height: 300,
           color: "white",
         }}
-        {...rest}
       />
       <Parallax filter responsive image="/img/landing-bg.jpg">
         <div className={classes.container} style={{ zIndex: 1000 }}>

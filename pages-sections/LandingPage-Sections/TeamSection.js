@@ -8,7 +8,7 @@ import { down } from "styled-breakpoints";
 
 const useStyles = makeStyles(styles);
 
-const GridContainer = styled.div`
+const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
@@ -55,66 +55,68 @@ const MemberCard = styled(Card)`
   }
 `;
 
+const teamMembers = [
+  {
+    id: 0,
+    name: "Khandakar Abu Saife",
+    img: "/img/team/KHANDAKAR_ABU_SAIFE.jpeg",
+    designation: "Founder & Managing Director",
+  },
+  {
+    id: 1,
+    name: "Mozahidur Rahman",
+    img: "/img/team/Mozahidur_Rahman.jpeg",
+    designation: "Project Manager",
+  },
+  {
+    id: 2,
+    name: "Mohammad Imam Hossain",
+    img: "/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg",
+    designation: "Advisor",
+  },
+  {
+    id: 3,
+    name: "MD al tanjid shakil",
+    img: "/img/team/MD_al_tanjid_shakil.jpeg",
+    designation: "Mobile App Developer",
+  },
+];
+
 export default function TeamSection() {
   const classes = useStyles();
-
-  const teamMembers = [
-    {
-      name: "Khandakar Abu Saife",
-      img: "/img/team/KHANDAKAR_ABU_SAIFE.jpeg",
-      designation: "Founder & Managing Director",
-    },
-    {
-      name: "Mozahidur Rahman",
-      img: "/img/team/Mozahidur_Rahman.jpeg",
-      designation: "Project Manager",
-    },
-    {
-      name: "Mohammad Imam Hossain",
-      img: "/img/team/MOHAMMAD_IMAM_HOSSAIN.jpeg",
-      designation: "Advisor",
-    },
-    {
-      name: "MD al tanjid shakil",
-      img: "/img/team/MD_al_tanjid_shakil.jpeg",
-      designation: "Mobile App Developer",
-    },
-  ];
 
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>OUR HARDWORKING TEAM</h2>
-      <div>
-        <GridContainer>
-          {teamMembers.map((member) => (
-            <MemberCard>
-              <LinksDiv>
-                <LinkContainer>
-                  <Facebook />
-                </LinkContainer>
-                <LinkContainer>
-                  <Instagram />
-                </LinkContainer>
-                <LinkContainer>
-                  <LinkedIn />
-                </LinkContainer>
-              </LinksDiv>
-              <CardMedia
-                component="img"
-                height="200"
-                image={member.img}
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography variant="subtitle1" fontWeight="600">
-                  {member.name}
-                </Typography>
-                <Typography variant="caption">{member.designation}</Typography>
-              </CardContent>
-            </MemberCard>
-          ))}
-        </GridContainer>
-      </div>
+      <CardsContainer>
+        {teamMembers.map((member) => (
+          <MemberCard key={member.id}>
+            <LinksDiv>
+              <LinkContainer>
+                <Facebook />
+              </LinkContainer>
+              <LinkContainer>
+                <Instagram />
+              </LinkContainer>
+              <LinkContainer>
+                <LinkedIn />
+              </LinkContainer>
+            </LinksDiv>
+            <CardMedia
+              component="img"
+              height="200"
+              image={member.img}
+              alt="green iguana"
+            />
+            <CardContent>
+              <Typography variant="subtitle1" fontWeight="600">
+                {member.name}
+              </Typography>
+              <Typography variant="caption">{member.designation}</Typography>
+            </CardContent>
+          </MemberCard>
+        ))}
+      </CardsContainer>
     </div>
   );
 }
