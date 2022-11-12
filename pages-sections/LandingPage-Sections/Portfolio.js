@@ -84,7 +84,7 @@ const projects = [
   {
     id: 6,
     img: "/img/portfolio/ula.png",
-    title: "ULA",
+    title: "ULA LTD.",
     description:
       "You can write here details about one of your team members. You can give more details about what they do. Feel free to add some links for people to be able to follow them outside the site..",
     stack: "Django, React, Flutter",

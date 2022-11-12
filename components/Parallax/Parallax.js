@@ -131,7 +131,7 @@ export default function Parallax(props) {
                 enable: true,
                 area: 800,
               },
-              value: 150,
+              value: 120,
             },
             opacity: {
               value: 0.5,

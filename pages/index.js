@@ -7,7 +7,7 @@ import Carousel from "nuka-carousel";
 import Header from "../components/Header/Header.js";
 import Footer from "../components/Footer/Footer.js";
 import HeaderLinks from "../components/Header/HeaderLinks.js";
-import Parallax from "/components/Parallax/Parallax.js";
+import Parallax from "../components/Parallax/Parallax.js";
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
 import ProductSection from "../pages-sections/LandingPage-Sections/ProductSection.js";
 import TeamSection from "../pages-sections/LandingPage-Sections/TeamSection.js";

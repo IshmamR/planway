@@ -64,9 +64,9 @@ const teamMembers = [
   },
   {
     id: 1,
-    name: "Mozahidur Rahman",
-    img: "/img/team/Mozahidur_Rahman.jpeg",
-    designation: "Project Manager",
+    name: "MD Rhidoy Hyder",
+    img: "/img/team/MD_Rhidoy_Hyder.jpeg",
+    designation: "Co founder",
   },
   {
     id: 2,
@@ -76,9 +76,21 @@ const teamMembers = [
   },
   {
     id: 3,
+    name: "Mozahidur Rahman",
+    img: "/img/team/Mozahidur_Rahman.jpeg",
+    designation: "Project Manager",
+  },
+  {
+    id: 4,
     name: "MD al tanjid shakil",
     img: "/img/team/MD_al_tanjid_shakil.jpeg",
     designation: "Mobile App Developer",
+  },
+  {
+    id: 5,
+    name: "Ishmam ur Rahman",
+    img: "https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=Ishmam+Rahman",
+    designation: "Front-end Developer",
   },
 ];
 
@@ -87,7 +99,7 @@ export default function TeamSection() {
 
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>OUR HARDWORKING TEAM</h2>
+      <h2 className={classes.title}>OUR TEAM</h2>
       <CardsContainer>
         {teamMembers.map((member) => (
           <MemberCard key={member.id}>
