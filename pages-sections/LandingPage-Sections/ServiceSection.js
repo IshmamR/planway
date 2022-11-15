@@ -17,6 +17,18 @@ import CardFooter from "/components/Card/CardFooter.js";
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/teamStyle.js";
 import { Box, Typography } from "@mui/material";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import { down } from "styled-breakpoints";
+import styled from "styled-components";
+
+const StyledImage = styled.img`
+  height: 360px;
+  width: 360px;
+
+  ${down("md")} {
+    height: 280px;
+    width: 280px;
+  }
+`;
 
 const useStyles = makeStyles(styles);
 
@@ -82,7 +94,7 @@ export default function ServiceSection() {
             </Typography>
           </Box>
           <Box flex={1}>
-            <img src="/img/service/1.jpg" height="360" width="360" />
+            <StyledImage src="/img/service/1.jpg" height="360" width="360" />
           </Box>
         </Box>
 
@@ -97,7 +109,7 @@ export default function ServiceSection() {
           mb={2}
         >
           <Box flex={1}>
-            <img src="/img/service/2.jpg" height="360" width="400" />
+            <StyledImage src="/img/service/2.jpg" height="360" width="400" />
           </Box>
           <Box flex={1}>
             <Typography color="gray" textAlign="right" mb={2}>
@@ -175,7 +187,7 @@ export default function ServiceSection() {
             </Typography>
           </Box>
           <Box flex={1}>
-            <img src="/img/service/3.jpg" height="360" width="360" />
+            <StyledImage src="/img/service/3.jpg" height="360" width="360" />
           </Box>
         </Box>
       </Box>

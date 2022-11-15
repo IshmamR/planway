@@ -12,19 +12,27 @@ import GridItem from "/components/Grid/GridItem.js";
 import InfoArea from "../../components/InfoArea/InfoArea.js";
 
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/productStyle.js";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 const useStyles = makeStyles(styles);
 
 export default function ProductSection() {
   const classes = useStyles();
+  const theme = useTheme();
+  const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={12}>
-          <h2 className={classes.title}>
-            Professional And Dedicated Software Solutions
-          </h2>
+          {isDownMd ? (
+            <h3 className={classes.title}>
+              Professional And Dedicated Software Solutions
+            </h3>
+          ) : (
+            <h2 className={classes.title}>
+              Professional And Dedicated Software Solutions
+            </h2>
+          )}
           <h5 className={classes.description}>
             Planway IT is a next-generation global technology company that helps
             enterprises reimagine their businesses for the digital age. Our
@@ -110,6 +118,7 @@ export default function ProductSection() {
           display="flex"
           justifyContent="center"
           alignItems="center"
+          flexWrap="wrap"
           px={{ xs: 0, md: 12 }}
         >
           <InfoArea

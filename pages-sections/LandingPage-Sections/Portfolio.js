@@ -9,6 +9,8 @@ import {
   Typography,
   ImageListItem,
   ImageListItemBar,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Carousel from "nuka-carousel";
 
@@ -103,11 +105,19 @@ export default function PortfolioSection() {
 
   const classes = useStyles();
 
+  const theme = useTheme();
+  const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>Some of our recent works</h2>
       <div>
-        <ImageList variant="quilted" cols={3} gap={2} sx={{ pb: 4 }}>
+        <ImageList
+          variant="quilted"
+          cols={isDownMd ? 2 : 3}
+          gap={2}
+          sx={{ pb: 4 }}
+        >
           {projects.map((item) => (
             <ImageListItem key={item.img}>
               <img
@@ -138,8 +148,12 @@ export default function PortfolioSection() {
         onClose={() => setProjectModal(undefined)}
       >
         <DialogContent>
-          <Box display="flex" flexDirection="row" gap={3}>
-            <Box minWidth="50%" maxWidth="50%">
+          <Box
+            display="flex"
+            flexDirection={{ xs: "column", md: "row" }}
+            gap={{ xs: 1, md: 3 }}
+          >
+            <Box minWidth="50%" maxWidth={{ xs: "100%", md: "50%" }}>
               {projectModal?.images ? (
                 <Carousel
                   slidesToShow={projectModal?.isWeb ? 1 : 2}
@@ -161,7 +175,7 @@ export default function PortfolioSection() {
                 </Carousel>
               ) : null}
             </Box>
-            <Box flex={1} py={2} maxWidth="50%">
+            <Box flex={1} py={2} maxWidth={{ xs: "100%", md: "50%" }}>
               <Typography variant="h4">{projectModal?.title}</Typography>
               <Typography variant="body2">
                 {projectModal?.description}

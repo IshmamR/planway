@@ -13,6 +13,24 @@ import {
   useTheme,
 } from "@mui/material";
 import Carousel from "nuka-carousel";
+import styled from "styled-components";
+import { down } from "styled-breakpoints";
+
+const ClientLogo = styled.img`
+  height: 120px;
+  width: 240px;
+  border: 1px solid #dadada;
+  object-fit: contain;
+
+  ${down("md")} {
+    height: 200px;
+  }
+
+  ${down("sm")} {
+    width: 100%;
+    height: 180px;
+  }
+`;
 
 const useStyles = makeStyles(styles);
 
@@ -109,6 +127,7 @@ export default function ClientsSection() {
 
   const theme = useTheme();
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div className={classes.section}>
@@ -118,7 +137,7 @@ export default function ClientsSection() {
       <div>
         <Carousel
           wrapAround
-          slidesToShow={4}
+          slidesToShow={isDownSm ? 1 : isDownMd ? 2 : 4}
           autoplay
           autoplayInterval={2000}
           cellAlign="center"
@@ -129,7 +148,7 @@ export default function ClientsSection() {
           }}
         >
           {projects.map((item) => (
-            <img
+            <ClientLogo
               key={item.img}
               src={item.img}
               height="120"
@@ -138,10 +157,6 @@ export default function ClientsSection() {
               title={item.title}
               loading="lazy"
               draggable={false}
-              style={{
-                border: "1px solid #dadada",
-                objectFit: "contain",
-              }}
             />
           ))}
         </Carousel>
